@@ -439,19 +439,3 @@ async function saveNote() {
     }
 }
 
-async function deleteNote(id) {
-    if(!confirm("Are you sure you want to delete this note?")) return;
-    try {
-        // ADDED AUTHORIZATION HEADER HERE
-        const res = await fetch(`/notes/${id}`, { 
-            method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-        if(res.ok) {
-            loadNotes();
-            showToast('Note deleted');
-        }
-    } catch(err) {
-        console.error("Error deleting note:", err);
-    }
-}
