@@ -19,7 +19,9 @@ if (loginForm) {
 
             const data = await res.json();
 
-            if (res.ok) {
+
+
+        if (res.ok) {
                 // Save Token & Redirect
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('companyName', data.companyName);
